@@ -1,10 +1,10 @@
 import React from "react";
-import "./Task.css";
+import "./Todo.css";
 
-const Task = () => {
+const Task = ({ todoData }) => {
   return (
     <div className='task__container'>
-      <span>To Do This</span>
+      <span>{todoData.content}</span>
     </div>
   );
 };
