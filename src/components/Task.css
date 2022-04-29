@@ -1,0 +1,7 @@
+.task__container {
+  border-top: solid 2px #cadef4;
+  height: 4vh;
+  width: 100%;
+  padding: 20px 10px;
+  margin-top: 5px;
+}
