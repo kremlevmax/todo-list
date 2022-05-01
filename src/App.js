@@ -2,12 +2,16 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Greeting from "./components/Greeting";
 import Login from "./components/Login";
+import MainArea from "./components/MainArea";
 import Popup from "./components/Popup";
 import TodoList from "./components/TodoList";
+import AddNewTodo from "./components/AddNewTodo";
 import todoServices from "./services/todos";
 
 function App() {
   const [todos, setTodos] = useState([]);
+  const [updateTodoList, setUpdateTodoList] = useState(false);
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     const getTodoList = async () => {
@@ -19,7 +23,7 @@ function App() {
       }
     };
     getTodoList();
-  }, []);
+  }, [updateTodoList]);
 
   return (
     <div className='App'>
@@ -27,8 +31,19 @@ function App() {
         <Popup>
           <Login />
         </Popup>
-        <Greeting />
-        <TodoList todos={todos} />
+        <MainArea todos={todos}>
+          <Greeting
+            todos={todos}
+            onClickHandler={() => setShowForm(true)}
+            showForm={showForm}
+          />
+          <TodoList todos={todos} showForm={showForm} />
+          <AddNewTodo
+            showForm={showForm}
+            updateList={() => setUpdateTodoList(!updateTodoList)}
+            hideForm={() => setShowForm(false)}
+          />
+        </MainArea>
       </div>
     </div>
   );

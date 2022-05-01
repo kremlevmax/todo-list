@@ -1,9 +1,2 @@
 .task-list__container {
-  width: 50vw;
-  height: 50vh;
-  padding: 20px;
-  background: #d9e4f5;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
-  border-radius: 20px;
 }

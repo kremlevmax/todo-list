@@ -1,7 +1,10 @@
-.task__container {
-  border-top: solid 2px #cadef4;
-  height: 4vh;
+.todo__container {
+  border-bottom: solid 1px #bedfff;
   width: 100%;
-  padding: 20px 10px;
-  margin-top: 5px;
+  padding: 28px 28px 8px;
+  transition: 0.5s ease-out;
 }
+
+/* .todo__container:hover {
+  background: #b4d3f3;
+} */

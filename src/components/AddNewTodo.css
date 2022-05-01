@@ -1,0 +1,52 @@
+.add-new-todo__container {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  transition: 0.7s ease-out;
+}
+
+.add-new-todo__input-form {
+  width: 100%;
+}
+
+.add-new-todo__input {
+  background-color: #fff;
+  border: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  width: 100%;
+  padding: 28px 40px 10px 28px;
+  box-shadow: 0 4px 0px -2px #bedfff;
+  /* transition: 0.7s ease-out; */
+}
+
+.add-new-todo__input:focus {
+  outline: none;
+  box-shadow: 0 4px 2px -2px #69a8e8;
+}
+
+.add-new-todo__add-button-container {
+  position: absolute;
+  padding-top: 12px;
+  width: 24px;
+  right: 36px;
+  bottom: 6px;
+}
+
+.add-new-todo__add-button {
+  filter: invert(76%) sepia(55%) saturate(3176%) hue-rotate(182deg)
+    brightness(94%) contrast(93%);
+  transition: 0.1s ease-out;
+}
+
+.extraClass {
+  font-size: 20px !important;
+  pointer-events: auto !important;
+}
+.extraClass:hover {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+.extraClass:not():hover {
+  visibility: hidden;
+}

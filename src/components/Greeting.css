@@ -1,9 +1,22 @@
 .greeting__container {
-  width: 50vw;
-  height: 20vh;
-  background: #d9e4f5;
-  margin-bottom: 6vh;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
-  border-radius: 20px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px 20px;
+  border-bottom: solid 1px #02a8fb3f;
+}
+
+.greeting__plus-icon-container {
+  position: absolute;
+  background: rgba(255, 255, 255, 0);
+  padding: 0px;
+  margin: 0;
+  right: 2vw;
+  bottom: -24px;
+  transition: 0.7s ease-out;
+}
+
+.greeting__plus-icon {
+  display: block;
+  width: 48px;
 }

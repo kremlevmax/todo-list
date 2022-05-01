@@ -7,6 +7,10 @@ const getAll = async () => {
   return request;
 };
 
-const todoServices = { getAll };
+const create = async (todoItem) => {
+  const response = await axios.post(baseURL, todoItem);
+  return response.data;
+};
+const todoServices = { getAll, create };
 
 export default todoServices;

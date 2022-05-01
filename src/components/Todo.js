@@ -1,12 +1,12 @@
 import React from "react";
 import "./Todo.css";
 
-const Task = ({ todoData }) => {
+const Todo = ({ todoData, opacity }) => {
   return (
-    <div className='task__container'>
+    <div className='todo__container' style={{ opacity }}>
       <span>{todoData.content}</span>
     </div>
   );
 };
 
-export default Task;
+export default Todo;
