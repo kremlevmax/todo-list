@@ -1,8 +1,21 @@
-.todo__container {
+.todo__main-container {
+  display: flex;
   border-bottom: solid 1px #bedfff;
   width: 100%;
   padding: 28px 28px 8px;
   transition: 0.5s ease-out;
+}
+
+.todo__data-container {
+  display: flex;
+  justify-content: space-between;
+  width: 78%;
+}
+
+.todo__container {
+}
+
+.todo__checkbox-container {
 }
 
 /* .todo__container:hover {

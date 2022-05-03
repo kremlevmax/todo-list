@@ -20,6 +20,15 @@
   /* transition: 0.7s ease-out; */
 }
 
+.add-new-todo__input::placeholder {
+  color: #bedfff;
+  transition: 0.5s ease-out;
+}
+
+.add-new-todo__input:focus::placeholder {
+  color: transparent;
+}
+
 .add-new-todo__input:focus {
   outline: none;
   box-shadow: 0 4px 2px -2px #69a8e8;
@@ -37,16 +46,4 @@
   filter: invert(76%) sepia(55%) saturate(3176%) hue-rotate(182deg)
     brightness(94%) contrast(93%);
   transition: 0.1s ease-out;
-}
-
-.extraClass {
-  font-size: 20px !important;
-  pointer-events: auto !important;
-}
-.extraClass:hover {
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-.extraClass:not():hover {
-  visibility: hidden;
 }

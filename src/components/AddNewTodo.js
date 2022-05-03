@@ -25,6 +25,7 @@ const AddNewTodo = ({ showForm, updateList, hideForm }) => {
         className='add-new-todo__input-form'
         onSubmit={(e) => {
           e.preventDefault();
+          createTodo();
         }}
       >
         <input
@@ -33,6 +34,7 @@ const AddNewTodo = ({ showForm, updateList, hideForm }) => {
           onChange={({ target }) => setContent(target.value)}
           onFocus={() => setFocus(true)}
           onBlur={() => setFocus(false)}
+          placeholder='Enter a new ToDo here'
         ></input>
       </form>
       <div className='add-new-todo__add-button-container'>

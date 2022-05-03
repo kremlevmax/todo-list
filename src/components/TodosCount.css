@@ -1,5 +1,6 @@
 .task-count__container {
   margin-bottom: 20px;
+  transition: 0.5s ease-out;
 }
 
 .task-count__text {
