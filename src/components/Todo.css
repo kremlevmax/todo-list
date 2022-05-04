@@ -9,15 +9,9 @@
 .todo__data-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 78%;
 }
 
 .todo__container {
 }
-
-.todo__checkbox-container {
-}
-
-/* .todo__container:hover {
-  background: #b4d3f3;
-} */

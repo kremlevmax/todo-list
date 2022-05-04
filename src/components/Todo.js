@@ -1,4 +1,5 @@
 import React from "react";
+import Checkbox from "./Checkbox";
 import "./Todo.css";
 
 const Todo = ({ todoData, opacity }) => {
@@ -9,11 +10,7 @@ const Todo = ({ todoData, opacity }) => {
           <span>{todoData.content}</span>
         </div>
         <div className='todo__checkbox-container'>
-          <input
-            className='todo__checkbox'
-            type='checkbox'
-            style={{ opacity }}
-          />
+          <Checkbox />
         </div>
       </div>
     </div>
