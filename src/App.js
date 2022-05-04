@@ -37,7 +37,11 @@ function App() {
             onClickHandler={() => setShowForm(true)}
             showForm={showForm}
           />
-          <TodoList todos={todos} showForm={showForm} />
+          <TodoList
+            todos={todos}
+            showForm={showForm}
+            updateTodoList={updateTodoList}
+          />
           <AddNewTodo
             showForm={showForm}
             updateList={() => setUpdateTodoList(!updateTodoList)}

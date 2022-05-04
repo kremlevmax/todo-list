@@ -3,7 +3,6 @@
   border-bottom: solid 1px #bedfff;
   width: 100%;
   padding: 28px 28px 8px;
-  transition: 0.5s ease-out;
 }
 
 .todo__data-container {
@@ -11,7 +10,9 @@
   justify-content: space-between;
   align-items: center;
   width: 78%;
+  transition: 0.7s ease-out;
 }
 
-.todo__container {
+.todo__text {
+  transition: 0.7s ease-out;
 }
