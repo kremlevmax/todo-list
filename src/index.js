@@ -9,6 +9,3 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
-// I'm still doing my test assignment
-// come back to you soon
