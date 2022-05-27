@@ -6,13 +6,14 @@ input[type="checkbox"] {
   position: absolute;
   white-space: nowrap;
   width: 1px;
+  transition: 0.1s ease-out;
 }
 
 .checkbox {
   display: inline-block;
-  height: 20px;
-  width: 20px;
+  height: 36px;
+  width: 36px;
   background: #fff;
   border: 1px #bedfff solid;
-  margin-right: 4px;
+  margin: 0 4px 8px;
 }

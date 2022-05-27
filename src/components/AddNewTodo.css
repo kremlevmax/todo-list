@@ -14,7 +14,7 @@
   background-color: #fff;
   border: 0;
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: 24px;
   width: 100%;
   padding: 28px 40px 10px 28px;
   border-radius: 8px;
@@ -37,12 +37,13 @@
   position: absolute;
   padding-top: 12px;
   width: 24px;
-  right: 36px;
-  bottom: 6px;
+  right: 15%;
+  bottom: 2px;
 }
 
 .add-new-todo__add-button {
   filter: invert(76%) sepia(55%) saturate(3176%) hue-rotate(182deg)
     brightness(94%) contrast(93%);
   transition: 0.1s ease-out;
+  width: 36px;
 }

@@ -2,17 +2,34 @@
   display: flex;
   border-bottom: solid 1px #bedfff;
   width: 100%;
-  padding: 28px 28px 8px;
+  padding: 22px 28px;
 }
 
 .todo__data-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 78%;
+  width: 88%;
+}
+
+.todo__container {
   transition: 0.7s ease-out;
 }
 
 .todo__text {
   transition: 0.7s ease-out;
+}
+
+.todo__trash-icon-container {
+}
+
+.todo__trash-icon {
+  filter: invert(76%) sepia(55%) saturate(3176%) hue-rotate(182deg)
+    brightness(94%) contrast(93%);
+  width: 30px;
+}
+
+.todo__buttons {
+  display: flex;
+  gap: 30px;
 }
