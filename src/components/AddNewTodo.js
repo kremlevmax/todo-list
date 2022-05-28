@@ -3,7 +3,7 @@ import todoServices from "../services/todos";
 import "./AddNewTodo.css";
 import add from "../images/add.svg";
 
-const AddNewTodo = ({ showForm, updateList, hideForm }) => {
+const AddNewTodo = ({ showForm, setTodos, hideForm }) => {
   const [content, setContent] = useState("");
   const [focus, setFocus] = useState(false);
 
@@ -13,10 +13,13 @@ const AddNewTodo = ({ showForm, updateList, hideForm }) => {
   const todo = { content };
 
   const createTodo = async () => {
-    await todoServices.create(todo);
+    const savedTodo = await todoServices.create(todo);
     setContent("");
     hideForm();
-    setTimeout(updateList, 600);
+    setTimeout(
+      setTodos((prev) => [...prev, savedTodo]),
+      600
+    );
   };
 
   return (

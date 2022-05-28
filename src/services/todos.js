@@ -12,12 +12,17 @@ const create = async (todoItem) => {
   return response.data;
 };
 
+const remove = async (todoItem) => {
+  const URL = baseURL + todoItem.id;
+  await axios.delete(URL, todoItem);
+};
+
 const update = async (todoItem) => {
   const URL = baseURL + todoItem.id;
   const response = await axios.put(URL, todoItem);
   return response.data;
 };
 
-const todoServices = { getAll, create, update };
+const todoServices = { getAll, create, update, remove };
 
 export default todoServices;

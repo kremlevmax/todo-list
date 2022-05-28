@@ -4,7 +4,7 @@ import "./Todo.css";
 import todoServices from "../services/todos";
 import trash from "../images/trash.svg";
 
-const Todo = ({ todoData }) => {
+const Todo = ({ todoData, setTodos }) => {
   const [opacity, setOpacity] = useState(todoData.status ? 0.4 : 1);
   const [textDecoration, setTextDecoration] = useState(
     todoData.status ? "line-through" : ""
@@ -18,6 +18,11 @@ const Todo = ({ todoData }) => {
     await todoServices.update(updatedtodo);
     setOpacity(isChecked ? 0.4 : 1);
     setTextDecoration(isChecked ? "line-through" : "");
+  };
+
+  const removeToDo = async () => {
+    await todoServices.remove(todoData);
+    setTodos((prev) => [...prev.filter((item) => item.id !== todoData.id)]);
   };
 
   return (
@@ -36,7 +41,7 @@ const Todo = ({ todoData }) => {
               setOpacity={setOpacity}
             />
           </div>
-          <div className='todo__trash-icon-container'>
+          <div className='todo__trash-icon-container' onClick={removeToDo}>
             <img src={trash} alt='Delete' className='todo__trash-icon' />
           </div>
         </div>

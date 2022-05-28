@@ -10,20 +10,22 @@ import todoServices from "./services/todos";
 
 function App() {
   const [todos, setTodos] = useState([]);
-  const [updateTodoList, setUpdateTodoList] = useState(false);
   const [showForm, setShowForm] = useState(false);
 
+  const getTodoList = async () => {
+    try {
+      const response = await todoServices.getAll();
+      setTodos(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
-    const getTodoList = async () => {
-      try {
-        const response = await todoServices.getAll();
-        setTodos(response.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
     getTodoList();
-  }, [updateTodoList]);
+  }, []);
+
+  console.log("!!!");
 
   return (
     <div className='App'>
@@ -37,14 +39,10 @@ function App() {
             onClickHandler={() => setShowForm(true)}
             showForm={showForm}
           />
-          <TodoList
-            todos={todos}
-            showForm={showForm}
-            updateTodoList={updateTodoList}
-          />
+          <TodoList todos={todos} setTodos={setTodos} showForm={showForm} />
           <AddNewTodo
             showForm={showForm}
-            updateList={() => setUpdateTodoList(!updateTodoList)}
+            setTodos={setTodos}
             hideForm={() => setShowForm(false)}
           />
         </MainArea>
