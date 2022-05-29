@@ -3,16 +3,16 @@ import todoServices from "../services/todos";
 import "./AddNewTodo.css";
 import add from "../images/add.svg";
 
-const AddNewTodo = ({ showForm, setTodos, hideForm }) => {
+const AddNewTodo = ({ showForm, setTodos, hideForm, user }) => {
   const [content, setContent] = useState("");
   const [focus, setFocus] = useState(false);
 
   const inputOpacity = showForm === true ? 1 : 0;
   const plusOpacity = focus === true ? 1 : 0.5;
 
-  const todo = { content };
-
   const createTodo = async () => {
+    const token = todoServices.setToken(user.token);
+    const todo = { content, token };
     const savedTodo = await todoServices.create(todo);
     setContent("");
     hideForm();

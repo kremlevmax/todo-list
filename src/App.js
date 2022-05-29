@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import "./App.css";
 import Greeting from "./components/Greeting";
 import Login from "./components/Login";
 import MainArea from "./components/MainArea";
@@ -21,6 +20,8 @@ function App() {
       console.log(error);
     }
   };
+
+  console.log(user);
 
   useEffect(() => {
     getTodoList();
@@ -45,6 +46,7 @@ function App() {
               showForm={showForm}
               setTodos={setTodos}
               hideForm={() => setShowForm(false)}
+              user={user}
             />
           </MainArea>
         </div>

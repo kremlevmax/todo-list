@@ -12,7 +12,7 @@ const Login = ({ setUser }) => {
     event.preventDefault();
     try {
       const user = await loginService.login(loginCredentials);
-      setUser(user);
+      setUser(user.data);
       setLoginCredentials({});
     } catch (exception) {
       setErrorMessage("Wrong credentials");
