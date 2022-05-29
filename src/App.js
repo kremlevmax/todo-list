@@ -11,6 +11,7 @@ import todoServices from "./services/todos";
 function App() {
   const [todos, setTodos] = useState([]);
   const [showForm, setShowForm] = useState(false);
+  const [user, setUser] = useState(null);
 
   const getTodoList = async () => {
     try {
@@ -24,30 +25,31 @@ function App() {
   useEffect(() => {
     getTodoList();
   }, []);
-
-  console.log("!!!");
-
+  console.log(user);
   return (
-    <div className='App'>
-      <div className='main-area'>
-        <Popup>
-          <Login />
-        </Popup>
+    <>
+      {user === null ? (
         <MainArea todos={todos}>
-          <Greeting
-            todos={todos}
-            onClickHandler={() => setShowForm(true)}
-            showForm={showForm}
-          />
-          <TodoList todos={todos} setTodos={setTodos} showForm={showForm} />
-          <AddNewTodo
-            showForm={showForm}
-            setTodos={setTodos}
-            hideForm={() => setShowForm(false)}
-          />
+          <Login setUser={setUser} />
         </MainArea>
-      </div>
-    </div>
+      ) : (
+        <div className='main-area'>
+          <MainArea todos={todos}>
+            <Greeting
+              todos={todos}
+              onClickHandler={() => setShowForm(true)}
+              showForm={showForm}
+            />
+            <TodoList todos={todos} setTodos={setTodos} showForm={showForm} />
+            <AddNewTodo
+              showForm={showForm}
+              setTodos={setTodos}
+              hideForm={() => setShowForm(false)}
+            />
+          </MainArea>
+        </div>
+      )}
+    </>
   );
 }
 

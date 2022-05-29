@@ -22,7 +22,7 @@ const AddNewTodo = ({ showForm, setTodos, hideForm }) => {
     );
   };
 
-  return (
+  return showForm ? (
     <div className='add-new-todo__container' style={{ opacity: inputOpacity }}>
       <form
         className='add-new-todo__input-form'
@@ -50,6 +50,8 @@ const AddNewTodo = ({ showForm, setTodos, hideForm }) => {
         />
       </div>
     </div>
+  ) : (
+    <></>
   );
 };
 
