@@ -18,6 +18,7 @@
 
 .todo__text {
   transition: 0.7s ease-out;
+  color: #024689;
 }
 
 .todo__trash-icon-container {

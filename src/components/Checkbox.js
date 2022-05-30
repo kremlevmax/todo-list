@@ -1,17 +1,10 @@
-import React, { useState } from "react";
-
+import React from "react";
 import "./Checkbox.css";
 
-const Checkbox = ({ finishToDo, checked }) => {
-  const [isChecked, setIsChecked] = useState(checked);
-
-  const checkboxHandler = () => {
-    setIsChecked(!isChecked);
-    finishToDo(!isChecked);
-  };
+const Checkbox = ({ finishToDo, isChecked }) => {
   return (
     <label>
-      <input type='checkbox' onChange={checkboxHandler} />
+      <input type='checkbox' onChange={finishToDo} />
       <svg
         className='checkbox'
         aria-hidden='true'

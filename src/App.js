@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Greeting from "./components/Greeting";
 import Login from "./components/Login";
 import MainArea from "./components/MainArea";
-import Popup from "./components/Popup";
 import TodoList from "./components/TodoList";
 import AddNewTodo from "./components/AddNewTodo";
 import todoServices from "./services/todos";
@@ -21,35 +20,34 @@ function App() {
     }
   };
 
-  console.log(user);
-
-  useEffect(() => {
-    getTodoList();
-  }, []);
-  console.log(user);
   return (
     <>
       {user === null ? (
-        <MainArea todos={todos}>
-          <Login setUser={setUser} />
+        <MainArea>
+          <Login setUser={setUser} getTodoList={getTodoList} />
         </MainArea>
       ) : (
-        <div className='main-area'>
-          <MainArea todos={todos}>
-            <Greeting
-              todos={todos}
-              onClickHandler={() => setShowForm(true)}
-              showForm={showForm}
-            />
-            <TodoList todos={todos} setTodos={setTodos} showForm={showForm} />
-            <AddNewTodo
-              showForm={showForm}
-              setTodos={setTodos}
-              hideForm={() => setShowForm(false)}
-              user={user}
-            />
-          </MainArea>
-        </div>
+        <MainArea>
+          <Greeting
+            todos={todos}
+            onClickHandler={() => setShowForm(true)}
+            showForm={showForm}
+            user={user}
+            setUser={setUser}
+          />
+          <TodoList
+            todos={todos}
+            setTodos={setTodos}
+            showForm={showForm}
+            user={user}
+          />
+          <AddNewTodo
+            showForm={showForm}
+            setTodos={setTodos}
+            hideForm={() => setShowForm(false)}
+            user={user}
+          />
+        </MainArea>
       )}
     </>
   );

@@ -7,10 +7,11 @@ const setToken = (newToken) => {
   token = `bearer ${newToken}`;
 };
 
-console.log("tokennnnn" + token);
-
 const getAll = async () => {
-  const request = await axios.get(baseURL);
+  const config = {
+    headers: { Authorization: token },
+  };
+  const request = await axios.get(baseURL, config);
   return request;
 };
 
@@ -30,7 +31,11 @@ const remove = async (todoItem) => {
 
 const update = async (todoItem) => {
   const URL = baseURL + todoItem.id;
-  const response = await axios.put(URL, todoItem);
+  const config = {
+    headers: { Authorization: token },
+  };
+
+  const response = await axios.put(URL, todoItem, config);
   return response.data;
 };
 

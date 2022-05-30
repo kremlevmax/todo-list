@@ -2,8 +2,15 @@
   position: relative;
   display: flex;
   justify-content: space-between;
-  padding: 0 60px 20px 20px;
+  padding: 0 60px 20px 10px;
   border-bottom: solid 1px #02a8fb3f;
+  margin-top: 50px;
+  min-width: 800px;
+}
+
+.greeting__text {
+  font-size: 28px;
+  color: rgba(2, 69, 136, 0.704);
 }
 
 .greeting__plus-icon-container {
@@ -19,4 +26,24 @@
 .greeting__plus-icon {
   display: block;
   width: 48px;
+}
+
+.greeting__logout-container {
+  position: absolute;
+  right: -20px;
+  top: -80px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.greeting__logout-icon {
+  width: 22px;
+  filter: invert(18%) sepia(82%) saturate(2014%) hue-rotate(194deg)
+    brightness(92%) contrast(102%);
+}
+
+.greeting__logout-text {
+  color: rgba(2, 69, 136, 0.704);
 }

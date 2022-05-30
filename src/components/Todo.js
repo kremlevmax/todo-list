@@ -1,24 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import Checkbox from "./Checkbox";
 import "./Todo.css";
 import todoServices from "../services/todos";
 import trash from "../images/trash.svg";
 
 const Todo = ({ todoData, setTodos }) => {
-  const [opacity, setOpacity] = useState(todoData.status ? 0.4 : 1);
-  const [textDecoration, setTextDecoration] = useState(
-    todoData.status ? "line-through" : ""
-  );
-
-  const finishToDo = async (isChecked) => {
+  const finishToDo = async () => {
     const updatedtodo = {
       id: todoData.id,
-      status: isChecked,
+      content: todoData.content,
+      status: !todoData.status,
     };
+    setTodos((prev) => [
+      ...prev.filter((item) => item.id !== todoData.id),
+      updatedtodo,
+    ]);
+
     await todoServices.update(updatedtodo);
-    setOpacity(isChecked ? 0.4 : 1);
-    setTextDecoration(isChecked ? "line-through" : "");
   };
+
+  const opacity = todoData.status ? 0.4 : 1;
+  const textDecoration = todoData.status ? "line-through" : "";
 
   const removeToDo = async () => {
     await todoServices.remove(todoData);
@@ -35,11 +37,7 @@ const Todo = ({ todoData, setTodos }) => {
         </div>
         <div className='todo__buttons'>
           <div className='todo__checkbox-container'>
-            <Checkbox
-              finishToDo={finishToDo}
-              checked={todoData.status}
-              setOpacity={setOpacity}
-            />
+            <Checkbox finishToDo={finishToDo} isChecked={todoData.status} />
           </div>
           <div className='todo__trash-icon-container' onClick={removeToDo}>
             <img src={trash} alt='Delete' className='todo__trash-icon' />
