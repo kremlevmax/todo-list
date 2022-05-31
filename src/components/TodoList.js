@@ -4,8 +4,10 @@ import "./TodoList.css";
 
 const TodoList = ({ todos, setTodos, user }) => {
   const [opacity, setOpacity] = useState(0);
-
-  let todoList = todos.map((todo) => (
+  const sortedTodos = todos.sort((x, y) =>
+    x.status === y.status ? 0 : x.status ? 1 : -1
+  );
+  let todoList = sortedTodos.map((todo) => (
     <Todo todoData={todo} key={todo.id} setTodos={setTodos} user={user} />
   ));
 

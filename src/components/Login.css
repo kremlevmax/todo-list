@@ -57,3 +57,12 @@
 .login-switch-text {
   cursor: pointer;
 }
+
+.login__error-message-container {
+  height: 20px;
+  text-align: center;
+}
+
+.login__error-message {
+  color: red;
+}

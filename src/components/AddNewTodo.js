@@ -9,6 +9,7 @@ const AddNewTodo = ({ showForm, setTodos, hideForm, user }) => {
 
   const inputOpacity = showForm === true ? 1 : 0;
   const plusOpacity = focus === true ? 1 : 0.5;
+  const inputVisibility = (showForm = true ? "visible" : "hidden");
 
   const createTodo = async () => {
     const token = todoServices.setToken(user.token);
@@ -22,8 +23,11 @@ const AddNewTodo = ({ showForm, setTodos, hideForm, user }) => {
     );
   };
 
-  return showForm ? (
-    <div className='add-new-todo__container' style={{ opacity: inputOpacity }}>
+  return (
+    <div
+      className='add-new-todo__container'
+      style={{ opacity: inputOpacity, visibility: inputVisibility }}
+    >
       <form
         className='add-new-todo__input-form'
         onSubmit={(e) => {
@@ -50,8 +54,6 @@ const AddNewTodo = ({ showForm, setTodos, hideForm, user }) => {
         />
       </div>
     </div>
-  ) : (
-    <></>
   );
 };
 
