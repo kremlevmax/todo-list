@@ -9,7 +9,7 @@ const AddNewTodo = ({ showForm, setTodos, hideForm, user }) => {
 
   const inputOpacity = showForm === true ? 1 : 0;
   const plusOpacity = focus === true ? 1 : 0.5;
-  const inputVisibility = (showForm = true ? "visible" : "hidden");
+  const inputVisibility = showForm === true ? "visible" : "hidden";
 
   const createTodo = async () => {
     const token = todoServices.setToken(user.token);

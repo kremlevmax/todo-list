@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Greeting from "./components/Greeting";
 import Login from "./components/Login";
 import MainArea from "./components/MainArea";
@@ -19,6 +19,16 @@ function App() {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem("loggedUser");
+    if (loggedUserJSON) {
+      const user = JSON.parse(loggedUserJSON);
+      setUser(user.data);
+      todoServices.setToken(user.data.token);
+      getTodoList();
+    }
+  }, []);
 
   return (
     <>

@@ -34,6 +34,7 @@ const Login = ({ setUser, getTodoList }) => {
       setUser(user.data);
       setLoginCredentials({});
       getTodoList();
+      window.localStorage.setItem("loggedUser", JSON.stringify(user));
     } catch (exception) {
       setErrorMessage("Wrong email or password");
 
@@ -72,6 +73,7 @@ const Login = ({ setUser, getTodoList }) => {
         todoServices.setToken(user.data.token);
         setUser(user.data);
         setRegisterCredentials({});
+        window.localStorage.setItem("loggedUser", JSON.stringify(user));
       } catch (exception) {
         setErrorMessage("All fields has to be filled");
         setTimeout(() => {
