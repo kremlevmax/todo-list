@@ -1,10 +1,10 @@
-.login_container {
+.login__container {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-.login-header_container {
+/* .login-header_container {
   padding-left: 4px;
 }
 
@@ -65,4 +65,4 @@
 
 .login__error-message {
   color: red;
-}
+} */
