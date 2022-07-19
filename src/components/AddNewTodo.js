@@ -1,27 +1,13 @@
 import React, { useState } from "react";
-import todoServices from "../services/todos";
 import "./AddNewTodo.css";
 import add from "../images/add.svg";
 
-const AddNewTodo = ({ showForm, setTodos, hideForm, user }) => {
-  const [content, setContent] = useState("");
+const AddNewTodo = ({ showForm, content, setContent, createTodo }) => {
   const [focus, setFocus] = useState(false);
 
   const inputOpacity = showForm === true ? 1 : 0;
   const plusOpacity = focus === true ? 1 : 0.5;
   const inputVisibility = showForm === true ? "visible" : "hidden";
-
-  const createTodo = async () => {
-    const token = todoServices.setToken(user.token);
-    const todo = { content, token };
-    const savedTodo = await todoServices.create(todo);
-    setContent("");
-    hideForm();
-    setTimeout(
-      setTodos((prev) => [...prev, savedTodo]),
-      600
-    );
-  };
 
   return (
     <div
@@ -58,4 +44,3 @@ const AddNewTodo = ({ showForm, setTodos, hideForm, user }) => {
 };
 
 export default AddNewTodo;
-//Refactoring

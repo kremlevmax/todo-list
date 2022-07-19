@@ -16,4 +16,5 @@ input[type="checkbox"] {
   background: #fff;
   border: 1px #bedfff solid;
   margin: 0 4px 8px;
+  cursor: pointer;
 }

@@ -4,6 +4,10 @@
   gap: 40px;
 }
 
+.login__button {
+  cursor: pointer;
+}
+
 /* .login-header_container {
   padding-left: 4px;
 }

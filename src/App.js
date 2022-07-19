@@ -1,46 +1,21 @@
-import React, { useState, useEffect } from "react";
-import Greeting from "./components/Greeting";
-import MainArea from "./components/MainArea";
-import TodoList from "./components/TodoList";
-import AddNewTodo from "./components/AddNewTodo";
-import todoServices from "./services/todos";
+import React, { useState } from "react";
 import Login from "./components/Login";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import TodoApp from "./components/TodoApp";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
-  const [todos, setTodos] = useState([]);
-  const [showForm, setShowForm] = useState(false);
-
-  const getTodoList = async () => {
-    try {
-      const response = await todoServices.getAll();
-      setTodos(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    getTodoList();
-  }, []);
 
   return (
-    <>
-      <MainArea>
-        <Login setIsAuth={setIsAuth} />
-        <Greeting
-          todos={todos}
-          onClickHandler={() => setShowForm(true)}
-          showForm={showForm}
+    <Router>
+      <Routes>
+        <Route path='/' element={<Login setIsAuth={setIsAuth} />} />
+        <Route
+          path='/todolist'
+          element={<TodoApp isAuth={isAuth} setIsAuth={setIsAuth} />}
         />
-        <TodoList todos={todos} setTodos={setTodos} showForm={showForm} />
-        <AddNewTodo
-          showForm={showForm}
-          setTodos={setTodos}
-          hideForm={() => setShowForm(false)}
-        />
-      </MainArea>
-    </>
+      </Routes>
+    </Router>
   );
 }
 

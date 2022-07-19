@@ -21,6 +21,7 @@
   right: 2vw;
   bottom: -24px;
   transition: 0.7s ease-out;
+  cursor: pointer;
 }
 
 .greeting__plus-icon {
