@@ -1,11 +1,33 @@
 .login__container {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  align-items: center;
+  gap: 20px;
 }
 
 .login__button {
   cursor: pointer;
+  background: #4286f5;
+  padding: 2px 14px 2px 2px;
+  border: none;
+  color: white;
+  line-height: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 700;
+  font-size: large;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.login__button:active {
+  box-shadow: none;
+}
+
+.login__google-logo {
+  background-color: white;
+  width: 42px;
 }
 
 /* .login-header_container {

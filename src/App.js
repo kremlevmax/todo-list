@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Login from "./components/Login";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import TodoApp from "./components/TodoApp";
 
 function App() {

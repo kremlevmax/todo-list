@@ -5,6 +5,7 @@ import { auth, provider } from "../services/firebase-config";
 import { signInWithPopup } from "firebase/auth";
 import MainArea from "./MainArea";
 import { useNavigate } from "react-router-dom";
+import googleLogo from "../images/google_logo.png";
 
 const Login = ({ setIsAuth }) => {
   let navigate = useNavigate();
@@ -22,7 +23,8 @@ const Login = ({ setIsAuth }) => {
       <div className='login__container'>
         <p>Sign In With Google to Continue</p>
         <button className='login__button' onClick={signInWithGoogle}>
-          Sign in with Google
+          <img className='login__google-logo' src={googleLogo} alt='' /> Sign in
+          with Google
         </button>
       </div>
     </MainArea>
