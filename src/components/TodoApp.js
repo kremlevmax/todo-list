@@ -1,58 +1,37 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import MainArea from "./MainArea";
 import Greeting from "./Greeting";
 import TodoList from "./TodoList";
 import AddNewTodo from "./AddNewTodo";
 import { useNavigate } from "react-router-dom";
-import {
-  addDoc,
-  getDocs,
-  deleteDoc,
-  updateDoc,
-  doc,
-  collection,
-} from "firebase/firestore";
-import { db, auth } from "../services/firebase-config";
-
-const todoCollectionRef = collection(db, "todos");
+import { create, getAll, remove, update } from "../services/todos";
 
 export const TodoApp = ({ isAuth, setIsAuth }) => {
   const [todos, setTodos] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [content, setContent] = useState("");
-  const [refetch, setRefetch] = useState(false);
 
   const navigate = useNavigate();
 
-  const createTodo = useCallback(async () => {
-    await addDoc(todoCollectionRef, {
-      content,
-      status: false,
-      authorId: auth.currentUser.uid,
-    });
+  const createTodo = async () => {
+    await create(content);
+    const data = await getAll();
+    setTodos(data);
     setContent("");
     setShowForm(false);
-  }, [content]);
+  };
 
-  const deleteTodo = useCallback(
-    async (id) => {
-      const postDoc = doc(db, "todos", id);
-      await deleteDoc(postDoc);
-      setRefetch(!refetch);
-    },
-    [refetch]
-  );
+  const deleteTodo = async (id) => {
+    await remove(id);
+    const data = await getAll();
+    setTodos(data);
+  };
 
-  const updateTodo = useCallback(
-    async (todo) => {
-      const updateTodoRef = doc(db, "todos", todo.id);
-      await updateDoc(updateTodoRef, {
-        status: !todo.status,
-      });
-      setRefetch(!refetch);
-    },
-    [refetch]
-  );
+  const updateTodo = async (todo) => {
+    await update(todo);
+    const data = await getAll();
+    setTodos(data);
+  };
 
   useEffect(() => {
     if (!isAuth) {
@@ -61,16 +40,12 @@ export const TodoApp = ({ isAuth, setIsAuth }) => {
   });
 
   useEffect(() => {
-    const getTodoList = async () => {
-      try {
-        const data = await getDocs(todoCollectionRef);
-        setTodos(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-      } catch (error) {
-        console.log(error);
-      }
+    const fetchData = async () => {
+      const data = await getAll();
+      setTodos(data);
     };
-    getTodoList();
-  }, [createTodo, refetch]);
+    fetchData();
+  }, []);
 
   return isAuth ? (
     <MainArea>

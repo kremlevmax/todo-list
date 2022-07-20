@@ -5,12 +5,17 @@
   padding: 0 60px 20px 10px;
   border-bottom: solid 1px #02a8fb3f;
   margin-top: 50px;
-  min-width: 800px;
 }
 
 .greeting__text {
   font-size: 28px;
   color: rgba(2, 69, 136, 0.704);
+}
+
+@media screen and (max-width: 575px) {
+  .greeting__text {
+    font-size: 20px;
+  }
 }
 
 .greeting__plus-icon-container {
@@ -49,4 +54,11 @@
 
 .greeting__logout-text {
   color: rgba(2, 69, 136, 0.704);
+}
+
+@media screen and (max-width: 575px) {
+  .greeting__logout-container {
+    top: -100%;
+    right: 0;
+  }
 }

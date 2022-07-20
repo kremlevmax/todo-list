@@ -5,6 +5,12 @@
   padding: 22px 28px;
 }
 
+@media screen and (max-width: 575px) {
+  .todo__main-container {
+    padding: 14px;
+  }
+}
+
 .todo__data-container {
   display: flex;
   justify-content: space-between;
@@ -21,14 +27,34 @@
   color: #024689;
 }
 
+@media screen and (max-width: 575px) {
+  .todo__text {
+    font-size: smaller;
+  }
+}
+
+.todo__checkbox-container {
+  display: flex;
+  align-items: center;
+  height: fit-content;
+}
+
 .todo__trash-icon-container {
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .todo__trash-icon {
   filter: invert(76%) sepia(55%) saturate(3176%) hue-rotate(182deg)
     brightness(94%) contrast(93%);
   width: 30px;
+}
+
+@media screen and (max-width: 575px) {
+  .todo__trash-icon {
+    width: 20px;
+  }
 }
 
 .todo__buttons {

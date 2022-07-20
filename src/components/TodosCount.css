@@ -6,3 +6,13 @@
 .task-count__text {
   color: rgb(176, 173, 173);
 }
+
+@media screen and (max-width: 575px) {
+  .task-count__container {
+    margin-bottom: 5px;
+  }
+  .task-count__text {
+    font-size: 16px;
+    line-height: 28px;
+  }
+}

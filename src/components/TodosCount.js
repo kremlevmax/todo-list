@@ -14,11 +14,7 @@ const TaskCount = ({ todos }) => {
     }
   };
 
-  return (
-    <div className='task-count__container'>
-      <span className='task-count__text'>{message()}</span>
-    </div>
-  );
+  return <span className='task-count__text'>{message()}</span>;
 };
 
 export default TaskCount;

@@ -1,3 +1,8 @@
+label {
+  display: flex;
+  align-items: center;
+}
+
 input[type="checkbox"] {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -15,6 +20,13 @@ input[type="checkbox"] {
   width: 36px;
   background: #fff;
   border: 1px #bedfff solid;
-  margin: 0 4px 8px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 575px) {
+  .checkbox {
+    height: 24px;
+    width: 24px;
+    margin: 0;
+  }
 }
